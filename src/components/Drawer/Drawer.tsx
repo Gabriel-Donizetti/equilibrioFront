@@ -17,7 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import ExitToApp from '@mui/icons-material/ExitToApp';
 import Typography from '@mui/material/Typography';
 import { BarChart } from '@mui/icons-material';
-import Form from '../../Form/Form';
+import Form from '../Form/Form';
 import { useParams } from 'react-router-dom';
 import Graph from '../Graphics/Graph';
 
