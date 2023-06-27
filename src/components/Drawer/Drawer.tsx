@@ -20,6 +20,8 @@ import { BarChart } from '@mui/icons-material';
 import Form from '../Form/Form';
 import { useParams } from 'react-router-dom';
 import Graph from '../Graphics/Graph';
+import Licenses from '../Licenses/Licenses';
+import FolderIcon from '@mui/icons-material/Folder';
 
 const drawerWidth = 240;
 
@@ -37,14 +39,24 @@ export default function ResponsiveDrawer(props: Props) {
 
   const [isGraph, setIsGraph] = useState(true);
 
+  const [isLicenses, setIsLicenses] = useState(false);
+
   const setarForm = () => {
     setIsForm(true)
     setIsGraph(false)
+    setIsLicenses(false)
   }
 
   const setarGraph = () => {
     setIsGraph(true)
     setIsForm(false)
+    setIsLicenses(false)
+  }
+
+  const setLicenses = () => {
+    setIsLicenses(true)
+    setIsForm(false)
+    setIsGraph(false)
   }
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -85,9 +97,9 @@ export default function ResponsiveDrawer(props: Props) {
         </ListItemButton>
       </ListItem>
       <ListItem key="Licenças" disablePadding>
-        <ListItemButton onClick={setarForm}>
+        <ListItemButton onClick={setLicenses}>
           <ListItemIcon>
-            <FormatAlignLeftIcon />
+            <FolderIcon />
           </ListItemIcon>
           <ListItemText primary="Licenças" />
         </ListItemButton>
@@ -169,6 +181,7 @@ export default function ResponsiveDrawer(props: Props) {
       </Box>
       {isForm && <Form/>}
       {isGraph && <Graph/>}
+      {isLicenses && <Licenses/>}
     </Box>
   );
 }
